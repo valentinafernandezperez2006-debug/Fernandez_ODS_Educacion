@@ -1,0 +1,855 @@
+/* ==========================================================================
+   1. FUENTES, VARIABLES Y RESET
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --blanco: #ffffff;
+    --gris: #eeecec;
+    --grisoscuro: #818181;
+    --grismuyoscuro: #4b4b4b;
+    --verdeclaro: #4ae488;
+    --verdechillon: #1fff10;
+    --verde: #00d154;
+    --verdeoscuro: #0ba84a;
+    --verdeazulado: #00c78b;
+    --amarillo: #a6ff00;
+    --negro: #000000;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+
+body {
+    background-color: var(--gris);
+}
+
+/* ==========================================================================
+   2. ESTRUCTURA BASE
+   ========================================================================== */
+
+header {
+    background-color: var(--blanco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0em 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 10px var(--grisoscuro);
+}
+
+.logo {
+    font-family: "Freckle Face", system-ui;
+    font-size: 1.4em;
+    color: var(--verde);
+}
+
+nav {
+    font-family: "Montserrat", sans-serif;
+    padding: 1em;
+}
+
+nav a {
+    color: var(--verde);
+    padding: 0.2em 1em;
+    margin: 0em 1em;
+    letter-spacing: -0.05em;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#navegador {
+    display: none;
+}
+
+#hamburguesa {
+    display: block;
+    z-index: 100;
+    cursor: pointer;
+}
+
+#hamburguesa img {
+    width: 20px;
+    height: auto;
+    display: block;
+}
+
+#portada {
+    min-height: 60vh;
+    background-image: url(img/HEADER-FONDO.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#titulo {
+    position: relative;
+    padding: 4em 1em;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "Freckle Face", system-ui;
+    margin-top: 0.5em;
+    font-size: 3em;
+    width: 70%;
+    color: var(--blanco);
+    font-weight: 200;
+    z-index: 10;
+}
+
+#titulo p {
+    font-family: "Montserrat", sans-serif;
+    color: var(--blanco);
+    padding: 1em 5em;
+    font-size: 1.2em;
+    font-weight: 600;
+    z-index: 10;
+    transition: all 0.4s ease;
+}
+
+#figuras img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+/* ==========================================================================
+   2. FORMULARIO
+   ========================================================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    width: 75%;
+    padding: 1em;
+    background-color: var(--blanco);
+    border-radius: 1em;
+    margin: 3em auto;
+    box-shadow: 0 2px 10px var(--negro);
+    position: relative;
+    z-index: 10;
+}
+
+#formtitulo {
+    font-size: 1.2em;
+    padding: 0.3em 0em;
+    margin: 0em;
+    color: var(--verdeoscuro);
+}
+
+form p {
+    font-size: 0.8em;
+    width: 80%;
+    text-align: center;
+    margin: 0.2em 0;
+}
+
+input[type="email"], select {
+    font-family: inherit;
+}
+
+input, select {
+    background-color: var(--gris);
+    width: 80%;
+    margin: 0.5em 0em;
+    padding: 0.8em 1em;
+    border: 1px solid var(--grisoscuro);
+    border-radius: 4em;
+    cursor: pointer;
+}
+
+::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+.boton {
+    font-size: 0.8em;
+    font-family: "Montserrat", sans-serif;
+    display: inline-block;
+    width: auto;
+    padding: 0.5em 1.2em;
+    margin: 0.5em;
+    color: var(--verde);
+    font-weight: 600;
+    border: 2px solid var(--verde);
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--blanco);
+    transition: all 0.2s ease-out;
+    z-index: 1;
+}
+
+main {
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==========================================================================
+   2. SECCIÓN GRILLA
+   ========================================================================== */
+
+#grilla {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#grilla div {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+#grilla div img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transform: scale(1);
+    transition: filter 0.3s ease-out, transform 0.3s ease-out;
+    will-change: filter, transform;
+}
+
+
+#grilla div p, #grilla div a {
+    filter: brightness(0.9);
+    transform: scale(1);
+    transition: filter 0.3s ease-out, transform 0.3s ease-out;
+    will-change: filter, transform;
+}
+
+/* --- BLOQUES DE CONTENIDO INTERNOS --- */
+
+#clase {
+    background-image: url(img/CLASE-1.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#clase p {
+    color: var(--blanco);
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 2.5em 2em;
+    text-align: center;
+}
+
+#chicos {
+    background-image: url(img/CHICOS-EN-EL-SUELO.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#chicos p {
+    color: var(--blanco);
+    font-size: 1.em;
+    font-weight: 500;
+    margin: 0.8em;
+    padding: 2.5em 2em;
+    text-align: center;
+}
+
+#grupo {
+    background-image: url(img/grupo-niños.jpg);
+    background-size: 230%;
+    background-repeat: no-repeat;
+    background-position: 48% 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#grupo p {
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    padding: 0em 4em;
+    color: var(--blanco);
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+}
+
+#grupo a {
+    color: var(--negro);
+    font-weight: 700;
+    display: inline-block;
+    background-color: var(--verde);
+    padding: 0.6em 2em;
+    border-radius: 20px;
+    transition: all 0.2s ease-out;
+    font-size: 0.8em;
+}
+
+
+#juntos {
+    background-image: url(img/CLASE-NIÑOS.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#juntos p {
+    color: var(--blanco);
+    font-size: 1em;
+    font-weight: 500;
+    padding: 4em;
+    bottom: 12%;
+}
+
+#chicas {
+    background-color: var(--verde);
+}
+
+#chicamesa {
+    background-color: var(--verdeclaro);
+}
+
+#chicamesa img {
+    width: 550%;
+}
+
+#chicamesa img, #chicas img {
+    filter: brightness(0.7);
+    transform: scale(1);
+    transition: filter 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* ==========================================================================
+   2. SECCIÓN ARTÍCULOS
+   ========================================================================== */
+
+#articulos {
+    background-color: var(--gris);
+    margin-bottom: 3em;
+
+}
+
+article {
+    width: 60%;
+    background-color: var(--blanco);
+    padding: 0.5em;
+    margin: 1em auto;
+    border-radius: 15px;
+    box-shadow:0 4px 10px var(--grisoscuro);
+    position: relative;
+
+}
+
+article img {
+    width: 100%;
+    aspect-ratio: 4/2;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#articulos article {
+    transform: scale(1);
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+#articulos h2 {
+    font-size: 2em;
+    color: var(--verdeazulado);
+    text-transform: uppercase;
+    padding: 1em 0em;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 1em;
+}
+
+article h3 {
+    font-size: 1em;
+    padding: 0.5em 0.8em;
+    color: var(--verdeazulado);
+}
+
+article a {
+    font-size: 0.8em;
+    color: var(--negro);
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.6em 2em;
+    margin: 1em 1em;
+    border-radius: 20px;
+    border: 1px solid var(--negro);
+    transition: all 0.2s ease-out;
+}
+
+article p {
+    color: var(--grisoscuro);
+    padding: 0em 0.8em;
+    margin: 0.2em 0em;
+    font-size: 0.8em;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 2em;
+    right: 0;
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 0.5em 3em;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    z-index: 10;
+}
+
+/* --- CLASES AUXILIARES --- */
+
+.solopc {
+    display: none;
+}
+
+.ocultar {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    /* Evita que el usuario pueda hacerle clic al espacio invisible */
+}
+
+/* ==========================================================================
+   2. SECCIÓN FOOTER
+   ========================================================================== */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--blanco);
+    background-color: var(--grismuyoscuro);
+    padding: 1em 1em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+footer p {
+    margin: 1em 2em;
+}
+
+footer a {
+    padding: 0em 0.5em;
+}
+
+footer img {
+    width: 20px;
+}
+
+/* ==========================================================================
+   3. HOVERS 
+   ==========================================================================*/
+
+#titulo p:hover {
+    transform: scale(1.3);
+    color: var(--blanco);
+    text-shadow: 0 0 20px var(--negro);
+    opacity: 1;
+}
+
+nav a:hover {
+    border-top: 2px solid var(--verde);
+    border-bottom: 2px solid var(--verde);
+}
+
+.boton:hover {
+    background-color: var(--verde);
+    color: var(--blanco);
+    transform: scale(1.05);
+}
+
+#grilla div p:hover, #grilla div a:hover {
+    filter: brightness(1.1);
+    transform: scale(1.08);
+}
+
+#chicamesa:hover img, #chicas:hover img {
+    filter: brightness(1.1);
+    transform: scale(1.08);
+}
+
+#grupo a:hover {
+    border: 3px solid var(--verde);
+    border-radius: 20px;
+    color: var(--verde);
+    background-color: transparent;
+}
+
+#articulos article:hover {
+
+    background-color: var(--amarillo);
+
+    /*Para que mis articles crezcan en el hover es necesario ya que tiene una animación de CSS*/
+    transform: scale(1.04) !important; 
+    box-shadow: 0 1px 20px var(--grismuyoscuro);
+}
+
+#articulos article:hover h3 {
+    color: var(--negro)
+}
+
+article a:hover {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+/* ==========================================================================
+   4. ANIMACIONES Y KEYFRAMES (Efectos de Scroll)
+   ========================================================================== */
+   
+   /* --- ANIMACIÓN 1 (Scroll - Viene desde arriba) --- */
+.animacion1 {
+    opacity: 0; 
+    transform: translateY(-50px);
+    will-change: transform, opacity;
+}
+.animacion1.activo {
+    animation: deslizarDesdeArriba 0.8s ease-out both;
+}
+@keyframes deslizarDesdeArriba {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ANIMACIÓN 2 (Scroll - Viene desde abajo) --- */
+.animacion2 {
+    opacity: 0;
+    transform: translateY(50px);
+    will-change: transform, opacity;
+}
+.animacion2.activo {
+    animation: deslizarDesdeAbajo 0.8s ease-out both;
+}
+@keyframes deslizarDesdeAbajo {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- (Carga directa) --- */
+.animacion7 {
+    animation: bajo 1s ease-out both;
+    animation-delay: 0.2s;
+    will-change: transform, opacity;
+}
+@keyframes bajo {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.animacion8 {
+    animation: deslizarDerecha 1.2s ease-out both;
+    will-change: transform, opacity;
+    animation-delay: 1.2s;
+}
+@keyframes deslizarDerecha {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animacion9 {
+    animation: subir 0.8s ease-out both;
+    animation-delay: 0.6s;
+    will-change: transform, opacity;
+}
+@keyframes subir {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   5. MEDIA QUERY: TABLET (min-width: 768px)
+   ========================================================================== */
+
+@media all and (min-width:768px) {
+    #portada {
+        min-height: 70vh;
+    }
+
+    h1 {
+        font-size: 6em;
+        margin-top: 1em
+    }
+
+    #navegador {
+        display: flex
+    }
+
+    #hamburguesa {
+        display: none;
+    }
+
+    #titulo {
+        font-size: 0.8em;
+        margin: 0 auto;
+    }
+
+    #titulo p {
+        font-size: 1.5em;
+        padding: 2em;
+    }
+
+    #grilla {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4 1fr);
+        grid-auto-rows: minmax(450px, 25vw);
+    }
+
+    #grilla div {
+        aspect-ratio: auto;
+    }
+
+    #grilla div:nth-of-type(2) {
+        grid-row: span 1;
+    }
+
+    #grilla div:nth-of-type(3) {
+        grid-column: 2;
+        grid-row: 1/ 3;
+    }
+
+    #grilla div:nth-of-type(4) {
+        grid-column: 1 / 3;
+        grid-row: 3
+    }
+
+    /* --- Bloques Internos --- */
+
+    #clase p {
+        font-size: 2em;
+    }
+
+    #grupo {
+        background-size: 450%;
+        background-repeat: no-repeat;
+        background-position: 48% 35%;
+    }
+
+    #grupo p {
+        margin: 1.2em;
+        font-size: 3.2em;
+    }
+
+    #juntos p {
+        width: 70%;
+    }
+
+    /* --- Artículos --- */
+    #contenedor {
+        width: 80%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2fr 1fr 1fr;
+        margin: 0 auto;
+        gap: 1em;
+    }
+
+    article {
+        width: 100%;
+        padding: 0.5em;
+        margin: 0.2em;
+    }
+
+    article:nth-of-type(3) {
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    /* --- Footer --- */
+    footer {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+}
+
+/* ==========================================================================
+   6. MEDIA QUERY: DESKTOP GRANDE (min-width: 1200px)
+   ========================================================================== */
+
+@media all and (min-width:1200px) {
+
+    #portada {
+        min-height: 100vh;
+        position: relative
+    }
+
+    h1 {
+        font-weight: 800;
+        padding: 0;
+        margin-top: 1em;
+        font-size: 7.5em;
+    }
+
+    #titulo p {
+        margin-top: 1em;
+        width: 50%;
+    }
+
+    /* --- Formulario Absoluto (Solo en PC) --- */
+
+    form {
+        width: 20%;
+        position: absolute;
+        right: 5%;
+        bottom: -2%;
+        z-index: 1;
+       
+    }
+
+    input[type="email"], select {
+        font-family: inherit;
+    }
+
+    input,
+    select {
+        background-color: var(--gris);
+        width: 80%;
+        border: 1px solid var(--grisoscuro);
+        border-radius: 4em;
+    }
+
+    .boton {
+        margin: 0.5em auto;
+        background-color: var(--verde);
+        color: var(--blanco);
+    }
+
+    /* --- Grilla Desktop --- */
+    #grilla {
+        margin-top: 5em;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(150px, 25vw);
+    }
+
+    #grilla div {
+        aspect-ratio: auto;
+    }
+
+    #grilla div:nth-of-type(2) {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    }
+
+    #grilla div:nth-of-type(3) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
+
+    #grilla div:nth-of-type(4) {
+        grid-column: 3 / 5;
+        grid-row: 1 / 2;
+    }
+
+    .solopc {
+        display: block;
+    }
+
+    h2 {
+        margin: 1em 0em;
+    }
+
+    #contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    article {
+        width: 30%;
+        padding: 0.5em 0.5em;
+    }
+
+    #clase p {
+        font-size: 1.8em;
+    }
+
+    #chicos p{
+         font-size: 1.5em
+    }
+    
+    #grupo {
+        background-size: 500%;
+    }
+
+    #grupo p {
+        padding: 0 2em;
+       margin-top: 2.5em;
+        font-size: 2em;
+    }
+
+    #juntos p{
+        font-size: 1.5em
+    }
+}

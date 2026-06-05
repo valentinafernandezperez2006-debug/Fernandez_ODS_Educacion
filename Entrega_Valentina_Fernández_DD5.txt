@@ -1,0 +1,3 @@
+Uso de IAG (Cumplimiento de pautas):
+- Herramienta utilizada: Gemini (Google)
+- Contexto de uso: Corrección de errores en la duplicación de keyframes en CSS y asistencia para la creación de la lógica en JavaScript nativo (IntersectionObserver) que activa las clases de animación (.activo) durante el scroll. El diseño, maquetado HTML semántico, estilos generales y contenidos fueron desarrollados en su totalidad de forma propia.
