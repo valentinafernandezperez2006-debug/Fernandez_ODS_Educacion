@@ -1,3 +1,20 @@
-Uso de IAG (Cumplimiento de pautas):
+
+URL:
+
+ODS elegido: 
+ODS 4 - Educación de Calidad
+
+Enfoque: 
+En este proyecto se buscó ir más allá de la teoría y de los discursos repetitivos donde se adjudican las soluciones a únicamente entes gubernamentales. Se buscó motivar al usuario con iniciativas accesibles que generan un cambio conformado por pequeñas acciones.
+
+Bancos de imágenes
+https://www.pexels.com/es-es/
+https://unsplash.com/es
+https://www.flaticon.es/
+
+Fuentes:
+https://www.un.org/sustainabledevelopment/es/education/
+
+Uso de IAG:
 - Herramienta utilizada: Gemini (Google)
-- Contexto de uso: Corrección de errores en la duplicación de keyframes en CSS y asistencia para la creación de la lógica en JavaScript nativo (IntersectionObserver) que activa las clases de animación (.activo) durante el scroll. El diseño, maquetado HTML semántico, estilos generales y contenidos fueron desarrollados en su totalidad de forma propia.
+- Contexto de uso: Asistencia para la creación de la lógica en JavaScript nativo (IntersectionObserver) que activa las clases de animación (.activo) durante el scroll. El diseño, maquetado HTML semántico, estilos generales y contenidos fueron desarrollados en su totalidad de forma propia.
