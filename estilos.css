@@ -172,18 +172,26 @@ form p {
     margin: 0.2em 0;
 }
 
+#formulario{
+    text-align: center;
+}
 input[type="email"], select {
     font-family: inherit;
 }
+select{
+    position: relative;
+}
 
 input, select {
+    position: relative;
     background-color: var(--gris);
     width: 80%;
-    margin: 0.5em 0em;
+    margin: 0.5em auto;
     padding: 0.8em 1em;
     border: 1px solid var(--grisoscuro);
     border-radius: 4em;
     cursor: pointer;
+    text-align: center;
 }
 
 ::placeholder {
@@ -300,7 +308,6 @@ main {
 #grupo p {
     margin-top: 1.8em;
     margin-bottom: 0.6em;
-    padding: 0em 4em;
     color: var(--blanco);
     font-size: 1.2em;
     font-weight: 700;
@@ -448,6 +455,7 @@ article p {
 .ocultar {
     opacity: 0;
     position: absolute;
+    top: 0;
     pointer-events: none;
     /* Evita que el usuario pueda hacerle clic al espacio invisible */
 }
@@ -642,6 +650,20 @@ article a:hover {
         margin-top: 1em
     }
 
+   #formulario{
+     display: flex;
+     flex-direction: row;   
+     gap: 2%;
+    
+    }
+
+    input, select{
+         border-radius: 1em;
+    }
+
+    .boton{
+        margin: 1em 0em;
+    }
     #navegador {
         display: flex
     }
@@ -765,7 +787,11 @@ article a:hover {
         right: 5%;
         bottom: -2%;
         z-index: 1;
-       
+    }
+
+    #formulario{
+        display: flex;
+        flex-direction: column;
     }
 
     input[type="email"], select {
@@ -775,7 +801,7 @@ article a:hover {
     input,
     select {
         background-color: var(--gris);
-        width: 80%;
+        width: 100%;
         border: 1px solid var(--grisoscuro);
         border-radius: 4em;
     }
